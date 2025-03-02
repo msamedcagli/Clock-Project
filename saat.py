@@ -1,33 +1,33 @@
 from tkinter import *  
 import time  
 
-# Create main window
+# Ana pencereyi oluştur
 clock_window = Tk()
-clock_window.title("Digital Clock")  
-clock_window.geometry("400x200") 
-clock_window.config(bg="#0C1E28")  
+clock_window.title("Dijital Saat")  # Pencere başlığını belirle
+clock_window.geometry("400x200")  # Pencerenin boyutlarını ayarla
+clock_window.config(bg="#0C1E28")  # Arka plan rengini belirle
 
-# Clock labels
+# Saat etiketleri (saat, dakika, saniye)
 label_hour = Label(clock_window, text="00", font=("Arial", 40), fg="white", bg="#0C1E28")
-label_hour.place(x=50, y=70)
+label_hour.place(x=50, y=70)  # Saat etiketi için konumlandırma
 
 label_minute = Label(clock_window, text="00", font=("Arial", 40), fg="white", bg="#0C1E28")
-label_minute.place(x=150, y=70)
+label_minute.place(x=150, y=70)  # Dakika etiketi için konumlandırma
 
 label_second = Label(clock_window, text="00", font=("Arial", 40), fg="white", bg="#0C1E28")
-label_second.place(x=250, y=70)
+label_second.place(x=250, y=70)  # Saniye etiketi için konumlandırma
 
-# Function to update time
+# Saati güncelleyen fonksiyon
 def update_clock():
-    hour = str(time.strftime("%H"))  # Get hour (24-hour format)
-    minute = str(time.strftime("%M"))  
-    second = str(time.strftime("%S"))  
+    hour = str(time.strftime("%H"))  # Saat bilgisini al (24 saat formatında)
+    minute = str(time.strftime("%M"))  # Dakika bilgisini al
+    second = str(time.strftime("%S"))  # Saniye bilgisini al
 
-    label_hour.config(text=hour)
-    label_minute.config(text=minute)
-    label_second.config(text=second)
+    label_hour.config(text=hour)  # Saat etiketini güncelle
+    label_minute.config(text=minute)  # Dakika etiketini güncelle
+    label_second.config(text=second)  # Saniye etiketini güncelle
     
-    clock_window.after(1000, update_clock)  # Update every second
+    clock_window.after(1000, update_clock)  # Her saniyede bir fonksiyonu çağır
 
-update_clock()  
-clock_window.mainloop()  
+update_clock()  # İlk çağırma
+clock_window.mainloop()  # Arayüzü çalıştır
